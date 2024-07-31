@@ -1,0 +1,74 @@
+.movieContainer {
+  display: flex;
+}
+
+.title {
+  font-size: 32px;
+}
+
+.text {
+  font-size: 24px;
+}
+
+.infoContainer {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+}
+
+.listContainer {
+  display: flex;
+}
+
+.genresContainer {
+  display: flex;
+  align-items: center;
+}
+
+.genresList {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+
+.img {
+  width: 300px;
+  height: 400px;
+  padding-left: 10px;
+  position: relative;
+}
+
+.info {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.link {
+  text-decoration: none;
+  color: rgb(78, 4, 4);
+  font-size: 32px;
+}
+
+.active {
+  font-weight: bold;
+}
+
+.goBackButton {
+  display: flex;
+  padding: 8px 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border: none;
+  border-radius: 8px;
+  background: #c21212;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  margin-bottom: 20px;
+}
