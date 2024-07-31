@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import MovieList from "../MoviesPage/MovieList";
+import MovieList from "../MovieList/MovieList";
 import s from "./HomePage.module.css";
 import { useNavigate, useLocation } from "react-router-dom";
 

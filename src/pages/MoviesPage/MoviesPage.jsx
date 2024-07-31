@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate, useSearchParams } from "react-router-dom";
-import MovieList from "./MovieList";
+import MovieList from "../MovieList/MovieList";
 import s from "./MoviesPage.module.css";
 import clsx from "clsx";
 

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import {
   useParams,
   Outlet,
@@ -19,6 +19,7 @@ const MovieDetailsPage = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const [movie, setMovie] = useState(null);
+  const prevLocation = useRef(location.state?.from || null);
 
   useEffect(() => {
     const fetchMovieDetails = async () => {
@@ -46,10 +47,10 @@ const MovieDetailsPage = () => {
   }
 
   const goBack = () => {
-    if (location.state?.from) {
-      navigate(location.state.from);
+    if (prevLocation.current) {
+      navigate(prevLocation.current);
     } else {
-      navigate(-1); // go back to the previous page
+      navigate(-1);
     }
   };
 
@@ -83,21 +84,21 @@ const MovieDetailsPage = () => {
             <NavLink
               className={buildLinkClass}
               to="cast"
-              state={location.state}
+              state={{ from: location.pathname }}
             >
               Cast
             </NavLink>
             <NavLink
               className={buildLinkClass}
               to="reviews"
-              state={location.state}
+              state={{ from: location.pathname }}
             >
               Reviews
             </NavLink>
           </div>
         </div>
       </div>
-      <Outlet />
+      <Outlet context={{ prevLocation: prevLocation.current }} />
     </div>
   );
 };
