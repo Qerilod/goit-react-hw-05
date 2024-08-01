@@ -1,13 +1,17 @@
 import React from "react";
+import { Link, useLocation } from "react-router-dom";
 import s from "./MovieList.module.css";
-const MovieList = ({ movies, onMovieClick }) => {
+
+const MovieList = ({ movies }) => {
+  const location = useLocation();
   return (
     <div className={s.movieList}>
       {movies.map((movie) => (
-        <div
+        <Link
           key={movie.id}
+          to={`/movies/${movie.id}`}
+          state={{ from: location }}
           className={s.movieItem}
-          onClick={() => onMovieClick(movie.id)}
         >
           <img
             className={s.movieImage}
@@ -15,7 +19,7 @@ const MovieList = ({ movies, onMovieClick }) => {
             alt={movie.title}
           />
           <p className={s.movieTitle}>{movie.title}</p>
-        </div>
+        </Link>
       ))}
     </div>
   );
